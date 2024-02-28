@@ -1,0 +1,9 @@
+<!--components/stepper/stepper.wxml-->
+<van-stepper model:value="{{ num }}" catchchange="onChange" minus-class="minusclass" plus-class="plusclass" input-class="inputclass" custom-class="{{ type }}" disable-input="{{ true }}" integer max="99">
+  <view slot="plus">
+    <image class="symbol" src="../../images/ico_add.png" mode=""/>
+  </view>
+  <view slot="minus">
+     <image class="symbol" src="../../images/ico_reduce.png" mode=""/>
+  </view>
+</van-stepper>

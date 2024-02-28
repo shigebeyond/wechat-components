@@ -1,0 +1,12 @@
+<!--components/upload/upload.wxml-->
+<!-- 图片上传 -->
+<view class="imgupload">
+  <van-cell  border="{{ false }}"></van-cell>
+  <view class="input-label" slot="title">
+  <text class="required" wx:if="{{required}}">*</text>{{label}}
+  </view>
+  <view class="imgupload-box">
+    <van-uploader file-list="{{ imageList }}" multiple max-count="{{max}}" bind:after-read="afterRead" bind:delete="delimage" />
+  </view>
+  <!-- <input hidden name="imageUrls" model:value="{{ imageUrls }}" /> -->
+</view>

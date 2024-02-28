@@ -1,0 +1,5 @@
+<!--components/noauth/noauth.wxml-->
+<view class="noauth">
+  <image src="../../images/ck_icon@2x.png" mode="widthFix"/>
+  <text>该页面会员才能查看~</text>
+</view>

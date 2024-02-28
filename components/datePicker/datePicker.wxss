@@ -1,0 +1,17 @@
+
+.right-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-icon image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.required {
+  font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FD2D51;
+}

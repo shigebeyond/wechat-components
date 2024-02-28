@@ -1,0 +1,11 @@
+<!--components/jumpToselect/jumpToselect.wxml-->
+    <!-- 跳转选择 -->
+    <van-field model:value="{{ selectName }}" name="selectValue" placeholder="" border="{{ false }}" readonly="{{ true }}" input-align="right" bind:click-input="jumpToselect">
+      <view class="input-label" slot="label" bind:tap="jumpToselect">
+        <text class="required" wx:if="{{required}}">*</text>
+        {{label}}
+      </view>
+      <view class="right-icon" slot="right-icon" bind:tap="jumpToselect">
+        <van-icon name="arrow" />
+      </view>
+    </van-field>

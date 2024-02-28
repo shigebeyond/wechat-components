@@ -1,0 +1,14 @@
+<!--components/datePicker.wxml-->
+<!-- 时间选择 -->
+<van-field model:value="{{ dateValue }}" name="timeSelect" placeholder="请选择时间" border="{{ border }}" readonly="{{ true }}" input-align="right" bind:click-input="showTimeselect">
+  <view class="input-label" slot="label" bind:tap="showTimeselect">
+    <text class="required" wx:if="{{required}}">*</text>
+    {{label}}
+  </view>
+  <view class="right-icon" slot="right-icon" bind:tap="showTimeselect">
+    <image class="" src="../../images/date.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+  </view>
+</van-field>
+<van-action-sheet show="{{ isShowtimeselect }}">
+  <van-datetime-picker type="date" value="{{ currentDate }}"  min-date="{{ minDate }}" formatter="{{ formatter }}" max-date="{{ maxDate }}" bind:confirm="timesubmit" bind:cancel="hidenTimeselect" />
+</van-action-sheet>

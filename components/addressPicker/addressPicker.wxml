@@ -1,0 +1,11 @@
+<!--components/addressPicker/addressPicker.wxml-->
+<view class="addrees-box">
+      <!-- 地区选择 -->
+      <van-cell required="{{required}}" title="门店地址" border="{{ false }}"></van-cell>
+      <van-field  model:value="{{ areaAddress }}" name="areaAddress" is-link readonly placeholder="请选择所在地区" bind:tap="showAddresbox" border="{{ false }}" />
+      <van-popup show="{{ addressBoxshow }}" round position="bottom">
+        <van-cascader wx:if="{{ addressBoxshow }}" value="{{ addressValue }}" field-names="{{ fieldNames }}" title="请选择所在地区" options="{{ addressOptions }}" bind:change="province_change" bind:close="hidenAddressbox" bind:finish="selectRegion" />
+      </van-popup>
+      <!-- 详细地址 -->
+      <van-field model:value="{{ detailAddress }}" name="detailAddress" autosize="{{ { maxHeight: 100, minHeight: 100 } }}" type="textarea" placeholder="请输入详细地址" custom-style="" border="{{ false }}" />
+    </view>

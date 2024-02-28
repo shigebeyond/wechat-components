@@ -1,0 +1,6 @@
+<!--components/nodata/nodata.wxml-->
+<view class="nodata">
+  <image src="../../images/nodata.png" mode="widthFix"/>
+
+</view>
+<text class="nodata-text">暂无相关信息</text>

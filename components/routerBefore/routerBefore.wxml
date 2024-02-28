@@ -1,0 +1,4 @@
+<!--components/routerBefore.wxml-->
+<view bindtap="routerCheck">
+<slot></slot>
+</view>

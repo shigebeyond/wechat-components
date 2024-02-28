@@ -1,0 +1,8 @@
+<van-cell border="{{ false }}">
+  <view class="input-label" slot="title">
+    <text class="required" wx:if="{{required}}">*</text>{{ label }}
+  </view>
+  <view class="radio-slot" slot="right-icon">
+    <van-switch model:checked="{{ switchValue }}" bind:change="switchChange" size="24px"/>
+  </view>
+</van-cell>

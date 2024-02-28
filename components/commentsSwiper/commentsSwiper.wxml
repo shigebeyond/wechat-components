@@ -1,0 +1,9 @@
+<!-- components/commentsSwiper/commentsSwiper.wxml -->
+<!-- <view class="comments"> -->
+<view class="comments">
+  <view class="cl-box" wx:for="{{view_comments}}" wx:for-index="index" id="{{ 'list1'+(index+1) }}" wx:key="index">
+    <text class="si-name">{{ item.name }}</text>
+    :{{ item.content }}
+  </view>
+</view>
+<!-- </view> -->

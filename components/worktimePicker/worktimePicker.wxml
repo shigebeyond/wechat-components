@@ -1,0 +1,47 @@
+<!--components/worktimePicker/worktimePicker.wxml-->
+<!-- 营业时间 -->
+<view class="businesshours-box">
+   <van-cell required="{{required}}" title="{{label}}" border="{{ false }}"></van-cell>
+   <view class="wtlist">
+      <view class="wtbox" wx:for="{{ wtlist }}" wx:for-index="idx">
+          <view class="wtbox-vf">
+            <van-field value="{{item.weekText}}" placeholder="星期几到几" custom-class="weekfield" data-item="{{ item }}" bind:tap="showweekselect" readonly="{{ true }}" />
+          </view>
+          <view class="wtbox-vf">
+            <van-field value="{{ item.work_start_time }}" placeholder="开始时间" custom-class="timefield" readonly="{{ true }}" input-align="right" data-item="{{ item }}" data-type="work_start_time" bind:click-input="showweektime">
+            <view class="right-icon" slot="right-icon" data-type="work_start_time" data-item="{{ item }}" bind:tap="showweektime">
+               <image class="" src="../../images/date.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+            </view>
+         </van-field>
+          </view>
+          <view class="wtbox-vf">
+            <van-field value="{{ item.work_end_time }}" placeholder="结束时间" custom-class="timefield" readonly="{{ true }}" data-type="work_end_time" data-item="{{ item }}" input-align="right" bind:click-input="showweektime">
+            <view class="right-icon" slot="right-icon" data-type="work_end_time" data-item="{{ item }}" bind:tap="showweektime">
+               <image class="" src="../../images/date.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+            </view>
+         </van-field>
+          </view>
+
+         <view class="add-WtItem" wx:if="{{ idx==0 }}" bindtap="addWtItem">+</view>
+         <view class="add-WtItem" data-index="{{ item.index }}" wx:else bindtap="reduceWtItem">-</view>
+      </view>
+      <!-- <input type="hidden" hidden value="{{ worktimes }}" name="wtlist" /> -->
+   </view>
+   <!-- 选择星期弹窗 -->
+   <van-action-sheet show="{{ isShowweekselect }}">
+      <view class="week-tit-line">
+         <view class="submit" bindtap="submitWeek">确定</view>
+         <view class="canel" bindtap="cancelWeek">取消</view>
+      </view>
+      <view class="week-line">
+         <van-field value="{{ startWeek }}" placeholder="" readonly="{{ true }}" input-align="center" />
+         <text>到</text>
+         <van-field value="{{ endWeek }}" placeholder="" readonly="{{ true }}" input-align="center" />
+      </view>
+      <van-picker columns="{{ weeklist }}" value-key="label" bind:change="weekChange" />
+   </van-action-sheet>
+   <!-- 营业时间时间弹窗 -->
+   <van-action-sheet show="{{ isShowweektime }}">
+      <van-datetime-picker type="time" min-hour="{{ timeMinhour }}" max-hour="{{ timeMaxhour }}" min-minute="{{ timeMinminute }}" max-minute="{{ timeMaxminute }}" value="{{ nowWeektime }}" bind:confirm="weektimesubmit" bind:change="timechange" bind:cancel="hidenTimeselect" />
+   </van-action-sheet>
+</view>
